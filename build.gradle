@@ -1,0 +1,45 @@
+/**
+ *
+ */
+buildscript {
+	ext {
+		springBootCloudVersion = '2020.0.4'
+		swaggerVersion = "2.4.29"
+		springBootVersion = "2.5.12"
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://plugins.gradle.org/m2/" }
+	}
+	dependencies {
+		classpath("io.swagger:swagger-codegen:${swaggerVersion}")
+	}
+}
+
+plugins {
+	id 'java'
+	id 'groovy'
+	id 'idea'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+allprojects {
+
+	repositories {
+		mavenCentral()
+		maven { url "https://plugins.gradle.org/m2/" }
+	}
+}
+
+/**
+ * Configures the sub-projects of this project.
+ * See settings.gradle for more information.
+ */
+subprojects {
+	apply plugin: "groovy"
+	apply plugin: 'idea'
+
+	group project.parent.group
+	version project.parent.version
+	sourceCompatibility = 11
+}
