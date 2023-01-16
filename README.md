@@ -1,1 +1,1 @@
-# lets-lern-java
+# lets-learn-java
